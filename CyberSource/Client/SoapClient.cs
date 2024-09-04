@@ -5,8 +5,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using CyberSource.Base;
-using CyberSource.Clients.SoapServiceReference;
 using System.Xml;
+using CyberSource.Clients.TransactionProcessor;
 
 namespace CyberSource.Clients
 {
@@ -185,7 +185,7 @@ namespace CyberSource.Clients
                         logger.LogRequest(req, config.Demo);
                     }
 
-                    ReplyMessage reply = proc.runTransaction(requestMessage);
+                    ReplyMessage reply = proc.runTransactionAsync(requestMessage).Result.replyMessage;
                     XmlNode rep = SerializeObjectToXmlNode(reply);
                     if (logger != null)
                     {

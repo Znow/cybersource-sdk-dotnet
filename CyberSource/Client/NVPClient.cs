@@ -7,8 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using CyberSource.Base;
-using CyberSource.Clients.NVPServiceReference;
-
+using CyberSource.Clients.NVPTransactionProcessor;
 
 
 namespace CyberSource.Clients
@@ -183,10 +182,10 @@ namespace CyberSource.Clients
                     // send request now, converting the hashtable request into
                     // a string, and the string reply back into a hashtable.
 
-                    string resp = proc.runTransaction(Hash2String(request));
+                    var resp = proc.runTransactionAsync(Hash2String(request)).Result;
 
 
-                    Hashtable reply = String2Hash(resp);
+                    Hashtable reply = String2Hash(resp.nvpReply);
 
                     if (logger != null)
                     {

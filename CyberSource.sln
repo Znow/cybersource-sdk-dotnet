@@ -5,6 +5,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		app.config = app.config
 		license.rtf = license.rtf
 		sample.xml = sample.xml
+		packages.config = packages.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSourceBase", "CyberSource\Base\CyberSourceBase.csproj", "{6EC4A1FB-44CE-4326-92A5-88A1ECC615BD}"
